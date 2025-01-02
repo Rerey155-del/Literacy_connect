@@ -15,7 +15,7 @@ const landingPage = () => {
                 backgroundSize: "cover",
                 fontFamily: "Montserrat",
             }}>
-
+                <p>haiiiiidddddddddddddddddddddddddddddddddddddddddddddddddd</p>
             </div>
         </section>
     )
