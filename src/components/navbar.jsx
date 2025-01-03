@@ -1,28 +1,32 @@
+import logo from '../assets/Logoo.png';
+
 const Navbar = () => {
     return (
-        <nav
-            style={{
-                display: "flex",
-                justifyContent: "space-around", // Memberi jarak antar elemen secara merata
-                alignItems: "center", // Vertikal tengah
-                backgroundColor: "#000",
-                color: "#FFF",
-                padding: "1rem",
-                position: "sticky", // Navbar tetap di atas saat scroll
-                top: 0,
-                zIndex: 10, // Tetap di atas elemen lainnya
-            }}
-        >
-            <ul style={{ display: "flex", gap: "1rem", listStyle: "none", margin: 0, padding: 0 }}>
-                <li>Home</li>
-                <li>Activity</li>
-                <li>Struktural</li>
-                <li>Profile</li>
-                <li>Recruitment</li>
+        <nav className="flex items-center bg-white text-black p-4 sticky top-0 z-10 justify-evenly font-inter shadow-xl font-[Inter]">
+            <ul className="flex items-center gap-4 list-none m-0 p-0">
+                <li>
+                    <img
+                        src={logo}
+                        alt="Logo"
+                        className="h-12 object-contain"
+                    />
+                </li>
+                <li><a href="#" className="hover:text-blue-500">Beranda</a></li>
+                <li><a href="#" className="hover:text-blue-500">Tentang Kami</a></li>
+                <li><a href="#" className="hover:text-blue-500">Donasi</a></li>
+                <li><a href="#" className="hover:text-blue-500">Galang Dana</a></li>
             </ul>
-            <button style={{ backgroundColor: "#444", color: "#FFF", border: "none", padding: "0.5rem 1rem", borderRadius: "5px" }}>
-                Dark Mode
-            </button>
+            <ul className="flex items-center gap-4 list-none m-0 p-0">
+                <li><a href="#" className="hover:text-blue-500">Masuk</a></li>
+                <li>
+                    <a
+                        href="#"
+                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                    >
+                        Daftar
+                    </a>
+                </li>
+            </ul>
         </nav>
     );
 };
