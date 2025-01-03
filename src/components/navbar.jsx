@@ -2,7 +2,7 @@ import logo from '../assets/Logoo.png';
 
 const Navbar = () => {
     return (
-        <nav className="flex items-center bg-white text-black p-4 sticky top-0 z-10 justify-evenly font-inter shadow-xl font-[Inter]">
+        <nav className="flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly font-inter shadow-xl font-[Inter] fixed ">
             <ul className="flex items-center gap-4 list-none m-0 p-0">
                 <li>
                     <img
