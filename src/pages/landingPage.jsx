@@ -28,8 +28,8 @@ const LandingPage = () => {
                     style={{
                         display: "flex",
                         justifyContent: "center", // Posisi gambar dan teks di tengah horizontal
-                        alignItems: "center", 
-                        marginTop : "6rem"// Posisi gambar dan teks di tengah vertikal
+                        alignItems: "center",
+                        marginTop: "6rem"// Posisi gambar dan teks di tengah vertikal
                     }}
                     className="relative container mx-auto p-10"
                 >
@@ -68,25 +68,41 @@ const LandingPage = () => {
                     </div>
 
                 </div>
-                
-                    <div className=" mt-24 gap-6 flex items-center justify-center  text-xl lg:gap-32  ">
-                        <div className=" text-center lg:space-y-3 lg:text-xl ">
-                            <p className="text-2xl font-bold text-[#11999E]">Rp 158.400.000</p>
-                            <p>Total Donasi</p>
-                        </div>
 
-                        <div className=" text-center lg:space-y-3 lg:text-xl">
-                            <p className="text-2xl font-bold text-[#11999E]">20.000</p>
-                            <p>Donatur</p>
-                        </div>
+                <div className=" mt-24 gap-6 flex items-center justify-center  text-xl lg:gap-32 mb-24  ">
+                    <div className=" text-center lg:space-y-3 lg:text-xl ">
+                        <p className="text-2xl font-bold text-[#11999E]">Rp 158.400.000</p>
+                        <p>Total Donasi</p>
+                    </div>
 
-                        <div className="text-center lg:space-y-3 lg:text-xl ">
-                            <p className="text-2xl font-bold text-[#11999E]">199</p>
-                            <p>Program</p>
+                    <div className=" text-center lg:space-y-3 lg:text-xl">
+                        <p className="text-2xl font-bold text-[#11999E]">20.000</p>
+                        <p>Donatur</p>
+                    </div>
+
+                    <div className="text-center lg:space-y-3 lg:text-xl ">
+                        <p className="text-2xl font-bold text-[#11999E]">199</p>
+                        <p>Program</p>
+                    </div>
+                </div>
+                <div className="bg-[#E4F9F5] p-10 mx-auto h-[25rem] w-[70rem] rounded-xl mb-8">
+                    <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
+                        <figure>
+                            <img
+                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                                alt="Shoes" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">Shoes!</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary">Buy Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
         </section>
     );
 };
