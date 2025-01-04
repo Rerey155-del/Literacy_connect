@@ -101,6 +101,7 @@ const LandingPage = () => {
                                 <p>Literacy Connect</p>
                                 <p>Dana terkumpul</p>
                             </div>
+                            <progress className="progress w-56 bg-[#11999E]"  value="100" max="100"></progress>
                         </div>
                     </div>
                     <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
@@ -115,6 +116,7 @@ const LandingPage = () => {
                                 <p>Literacy Connect</p>
                                 <p>Dana terkumpul</p>
                             </div>
+                            <progress className="progress w-56 bg-[#11999E]" value="70" max="100"></progress>
 
                         </div>
                     </div>
@@ -126,11 +128,12 @@ const LandingPage = () => {
                         </figure>
                         <div className="card-body h-[15rem]">
                             <h2 className="card-title">Bantu hadirkan pendidikan yang adil dan layak untuk anak-anak pedalaman kampung opang</h2>
-                            <div>
+                            <div className="mt-10">
                                 <p>Kampung opang</p>
                                 <p>Dana terkumpul</p>
+                                <progress className="progress w-56 bg-[#11999E] " value="100" max="100"></progress>
                             </div>
-
+                            
                         </div>
                     </div>
 
