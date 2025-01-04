@@ -1,6 +1,9 @@
 import Navbar from "../components/navbar";
 import Frame from "../assets/FRAME.png";
 import "../index.css";
+import foto1 from "../assets/foto1.png";
+import foto2 from "../assets/foto2.jpg";
+import foto3 from "../assets/foto3.jpg";
 
 const LandingPage = () => {
     return (
@@ -46,10 +49,10 @@ const LandingPage = () => {
                     <div
                         className="absolute bottom-[0rem]  bg-white w-[90%] sm:w-[60%] md:w-[40rem] p-4 rounded-lg shadow-xl flex items-center gap-2"
                     >
-                        <label className="flex items-center gap-2 font-[Inter] w-full">
+                        <label className="flex items-center gap-2 bg-white font-[Inter] w-full">
                             <input
                                 type="text"
-                                className="grow px-3 py-2 border border-none rounded-md focus:outline-none"
+                                className="grow px-3 py-2 border bg-white border-none rounded-md focus:outline-none"
                                 placeholder="Search"
                             />
                             <svg
@@ -85,27 +88,56 @@ const LandingPage = () => {
                         <p>Program</p>
                     </div>
                 </div>
-                <div className="bg-[#E4F9F5] p-10 mx-auto h-[25rem] w-[70rem] rounded-xl mb-8">
+                <div className="bg-[#E4F9F5] grid grid-cols-3 gap-4 p-10 mx-auto h-auto w-auto rounded-xl mb-8">
                     <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
                         <figure>
                             <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
+                                src={foto1}
+                                alt="" />
                         </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                        <div className="card-body h-[15rem]">
+                            <h2 className="card-title">4 Bulan Nunggak Iuran Sekolah, Rani Terancam Putus Sekolah</h2>
+                            <div>
+                                <p>Literacy Connect</p>
+                                <p>Dana terkumpul</p>
                             </div>
                         </div>
                     </div>
+                    <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
+                        <figure>
+                            <img
+                                src={foto2}
+                                alt="" />
+                        </figure>
+                        <div className="card-body h-[15rem]">
+                            <h2 className="card-title">Beasiswa Pendidikan yang Putus Sekolah</h2>
+                            <div>
+                                <p>Literacy Connect</p>
+                                <p>Dana terkumpul</p>
+                            </div>
 
-                    <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 2</a></li>
-                        <li><a>Item 3</a></li>
-                    </ul>
+                        </div>
+                    </div>
+                    <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
+                        <figure>
+                            <img
+                                src={foto3}
+                                alt="Shoes" />
+                        </figure>
+                        <div className="card-body h-[15rem]">
+                            <h2 className="card-title">Bantu hadirkan pendidikan yang adil dan layak untuk anak-anak pedalaman kampung opang</h2>
+                            <div>
+                                <p>Kampung opang</p>
+                                <p>Dana terkumpul</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
                 </div>
             </div>
 
