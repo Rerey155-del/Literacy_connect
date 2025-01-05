@@ -99,7 +99,7 @@ const LandingPage = () => {
                         <div className="card-body h-[15rem]">
                             <h2 className="card-title">4 Bulan Nunggak Iuran Sekolah, Rani Terancam Putus Sekolah</h2>
                             <div className="mt-16">
-                                <p>Literacy Connect</p>
+                                <p className="text-[#11999E] font-medium">Literacy Connect</p>
                                 <p>Dana terkumpul</p>
                             </div>
                             <progress className="progress w-56 bg-[#11999E] w-full" value="100" max="100"></progress>
@@ -118,7 +118,7 @@ const LandingPage = () => {
                         <div className="card-body h-[15rem]">
                             <h2 className="card-title">Beasiswa Pendidikan yang Putus Sekolah</h2>
                             <div className="mt-14">
-                                <p>Literacy Connect</p>
+                                <p className="text-[#11999E] font-medium">Literacy Connect</p>
                                 <p>Dana terkumpul</p>
                             </div>
                             <progress className="progress w-56 bg-[#11999E] w-full" value="70" max="100"></progress>
@@ -138,7 +138,7 @@ const LandingPage = () => {
                         <div className="card-body h-[15rem]">
                             <h2 className="card-title">Bantu hadirkan pendidikan yang adil dan layak untuk anak-anak pedalaman kampung opang</h2>
                             <div className="mt-10">
-                                <p>Kampung opang</p>
+                                <p className="text-[#11999E] font-medium">Kampung opang</p>
                                 <p>Dana terkumpul</p>
                                 <progress className="progress w-full bg-[#11999E] " value="100" max="100"></progress>
                                 <div className="flex justify-between">
