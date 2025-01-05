@@ -17,11 +17,11 @@ const Navbar = () => {
                 <li><a href="#" className="hover:text-blue-500">Galang Dana</a></li>
             </ul>
             <ul className="flex items-center gap-4 list-none m-0 p-0">
-                <li><a href="#" className="hover:text-blue-500">Masuk</a></li>
+                <li><a href="#" className="  hover:text-blue-500">Masuk</a></li>
                 <li>
                     <a
                         href="#"
-                        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                        className="bg-[#11999E] text-white px-4 py-2 rounded-md hover:bg-blue-600"
                     >
                         Daftar
                     </a>

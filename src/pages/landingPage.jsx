@@ -4,6 +4,7 @@ import "../index.css";
 import foto1 from "../assets/foto1.png";
 import foto2 from "../assets/foto2.jpg";
 import foto3 from "../assets/foto3.jpg";
+import Footer from "../components/footer";
 
 const LandingPage = () => {
     return (
@@ -97,11 +98,15 @@ const LandingPage = () => {
                         </figure>
                         <div className="card-body h-[15rem]">
                             <h2 className="card-title">4 Bulan Nunggak Iuran Sekolah, Rani Terancam Putus Sekolah</h2>
-                            <div>
+                            <div className="mt-16">
                                 <p>Literacy Connect</p>
                                 <p>Dana terkumpul</p>
                             </div>
-                            <progress className="progress w-56 bg-[#11999E]"  value="100" max="100"></progress>
+                            <progress className="progress w-56 bg-[#11999E] w-full" value="100" max="100"></progress>
+                            <div className="flex justify-between">
+                                <p className="text-left">Rp. 4.000.000</p>
+                                <p className="text-right">6 Donatur</p>
+                            </div>
                         </div>
                     </div>
                     <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
@@ -112,11 +117,15 @@ const LandingPage = () => {
                         </figure>
                         <div className="card-body h-[15rem]">
                             <h2 className="card-title">Beasiswa Pendidikan yang Putus Sekolah</h2>
-                            <div>
+                            <div className="mt-14">
                                 <p>Literacy Connect</p>
                                 <p>Dana terkumpul</p>
                             </div>
-                            <progress className="progress w-56 bg-[#11999E]" value="70" max="100"></progress>
+                            <progress className="progress w-56 bg-[#11999E] w-full" value="70" max="100"></progress>
+                            <div className="flex justify-between">
+                                <p className="text-left">Rp. 4.000.000</p>
+                                <p className="text-right">6 Donatur</p>
+                            </div>
 
                         </div>
                     </div>
@@ -131,18 +140,29 @@ const LandingPage = () => {
                             <div className="mt-10">
                                 <p>Kampung opang</p>
                                 <p>Dana terkumpul</p>
-                                <progress className="progress w-56 bg-[#11999E] " value="100" max="100"></progress>
+                                <progress className="progress w-full bg-[#11999E] " value="100" max="100"></progress>
+                                <div className="flex justify-between">
+                                    <p className="text-left">Rp. 4.000.000</p>
+                                    <p className="text-right">6 Donatur</p>
+                                </div>
                             </div>
-                            
+
                         </div>
                     </div>
-
-
-
-
-
+                </div>
+                <div className="p-10 mx-auto font-semibold text-2xl word-break w-[35rem] text-center">
+                    <p>Pintu kami selalu terbuka untuk lebih banyak orang yang ingin mendukung satu sama lain</p>
+                    <button className="btn btn-outline btn-accent p-4 mt-8">Ikut serta </button>
+                </div>
+                <div className="bg-[#11999ED9] flex flex-col items-center justify-center gap-4 p-10 mx-24 h-[20rem] w-auto rounded-xl mb-8">
+                    <p className="break-words w-[25rem] mx-auto text-center text-white font-semibold text-2xl">Jangan lewatkan update mingguan kami tentang donasi</p>
+                    <div className="flex justify-center gap-4">
+                        <input type="text" placeholder="masukkan email anda..." className="input input-bordered  bg-white w-full max-w-xs rounded-3xl" />
+                        <button className="btn btn-active btn-accent text-white bg-[#30E3CA]">Langganan</button>
+                    </div>
                 </div>
             </div>
+            <Footer/>
 
         </section>
     );
