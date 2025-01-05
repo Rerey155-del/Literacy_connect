@@ -1,7 +1,24 @@
 import login from "../assets/Login.png"
 import logoo from "../assets/Logoo.png"
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const LoginPage = () => {
+  const location = useLocation();
+
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,
+        });
+      }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll ke atas
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
   return (
     <section>
       <div
@@ -17,12 +34,12 @@ const LoginPage = () => {
         }}
       >
         {/* Bagian Gambar */}
-        <div className="pl-16">
+        <div className="pl-16" data-aos="fade-up">
           <img src={login} className="w-[30rem]" alt="Login illustration" />
         </div>
 
         {/* Bagian Form Login */}
-        <div className="bg-white w-[23rem] h-auto shadow-xl border rounded-xl p-6">
+        <div className="bg-white w-[23rem] h-auto shadow-xl border rounded-xl p-6" data-aos="fade-up">
           <div >
             {/* Header Logo */}
             <div className="flex justify-center items-center gap-2 pt-2 pb-4">

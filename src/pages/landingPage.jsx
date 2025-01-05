@@ -17,7 +17,7 @@ const LandingPage = () => {
 
     useEffect(() => {
         AOS.init({
-          duration: 2000,
+          duration: 1000,
         });
       }, []);
 
@@ -108,7 +108,7 @@ const LandingPage = () => {
                         <p>Program</p>
                     </div>
                 </div>
-                <div className="bg-[#E4F9F5] grid grid-cols-3 gap-4 p-10 mx-auto h-auto w-auto rounded-xl mb-8">
+                <div className="bg-[#E4F9F5] grid grid-cols-3 gap-4 p-10 mx-auto h-auto w-auto rounded-xl mb-8"  data-aos="fade-up">
                     <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
                         <figure>
                             <img
