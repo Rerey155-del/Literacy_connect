@@ -23,7 +23,7 @@ const LoginPage = () => {
 
         {/* Bagian Form Login */}
         <div className="bg-white w-[23rem] h-auto shadow-xl border rounded-xl p-6">
-          <div>
+          <div >
             {/* Header Logo */}
             <div className="flex justify-center items-center gap-2 pt-2 pb-4">
               <img src={logoo} alt="Logo" className="w-16" />

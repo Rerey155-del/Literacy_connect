@@ -5,8 +5,27 @@ import foto1 from "../assets/foto1.png";
 import foto2 from "../assets/foto2.jpg";
 import foto3 from "../assets/foto3.jpg";
 import Footer from "../components/footer";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const LandingPage = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        AOS.init({
+          duration: 2000,
+        });
+      }, []);
+
+      useEffect(() => {
+        window.scrollTo(0, 0); // Scroll ke atas
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [location]); 
+
     return (
         <section>
             <div
@@ -25,7 +44,7 @@ const LandingPage = () => {
                     backgroundSize: "cover",
                     display: "flex",
                     flexDirection: "column", // Menyusun elemen secara vertikal
-                }}
+                }} 
             >
                 <Navbar />
                 <div
@@ -35,7 +54,7 @@ const LandingPage = () => {
                         alignItems: "center",
                         marginTop: "6rem"// Posisi gambar dan teks di tengah vertikal
                     }}
-                    className="relative container mx-auto p-10"
+                    className="relative container mx-auto p-10" data-aos="fade-up"
                 >
                     {/* Gambar Background */}
                     <div>
