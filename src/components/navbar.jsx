@@ -1,6 +1,16 @@
 import logo from '../assets/Logoo.png';
+import {  useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
+
+    const Masuk = () => {
+        navigate("/login");
+      };
+
     return (
         <nav className="flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly font-inter shadow-xl font-[Inter] fixed ">
             <ul className="flex items-center gap-4 list-none m-0 p-0">
@@ -17,7 +27,10 @@ const Navbar = () => {
                 <li><a href="#" className="hover:text-blue-500">Galang Dana</a></li>
             </ul>
             <ul className="flex items-center gap-4 list-none m-0 p-0">
-                <li><a href="#" className="  hover:text-blue-500">Masuk</a></li>
+                <li><a href="#" onClick={(e) => {
+                  e.preventDefault();
+                  Masuk();
+                }} className="   hover:text-blue-500">Masuk</a></li>
                 <li>
                     <a
                         href="#"

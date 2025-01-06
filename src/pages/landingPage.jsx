@@ -6,7 +6,7 @@ import foto2 from "../assets/foto2.jpg";
 import foto3 from "../assets/foto3.jpg";
 import Footer from "../components/footer";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import {useLocation } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -14,7 +14,7 @@ import "aos/dist/aos.css";
 
 const LandingPage = () => {
     const location = useLocation();
-
+    
     useEffect(() => {
         AOS.init({
           duration: 1000,
