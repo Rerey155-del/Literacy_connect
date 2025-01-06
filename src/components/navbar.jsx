@@ -23,6 +23,9 @@ const Navbar = () => {
     const Masuk = () => {
         navigate("/login");
     };
+    const Daftar = () => {
+        navigate("/register");
+    };
 
     const handleLogout = () => {
         // Logout user
@@ -67,7 +70,7 @@ const Navbar = () => {
                     <>
                         <li>
                             <a
-                                href="#"
+                                href=""
                                 onClick={(e) => {
                                     e.preventDefault();
                                     Masuk();
@@ -79,7 +82,11 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a
-                                href="#"
+                                href=""
+                                onClick={(e)=> {
+                                    e.preventDefault();
+                                    Daftar();
+                                }}
                                 className="bg-[#11999E] text-white px-4 py-2 rounded-md hover:bg-blue-600"
                             >
                                 Daftar
