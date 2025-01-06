@@ -1,5 +1,6 @@
 import LandingPage from './pages/landingPage'
 import LoginPage from './pages/login'
+import RegisterPage from './pages/Register'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </Router>
   )

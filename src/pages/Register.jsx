@@ -6,7 +6,7 @@ import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const LoginPage = () => {
+const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -30,18 +30,13 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5000/donatur");
+      const response = await axios.post("http://localhost:5000/donatur");
 
       if (response.data) {
         const user = response.data.find((user) => user.email === email);
 
         if (user && user.password === password) {
           setPesan("Login berhasil!");
-
-          // Simpan username ke localStorage
-        localStorage.setItem("username", user.nama); // Simpan nama pengguna
-        localStorage.setItem("isLoggedIn", true); // Tandai bahwa user sudah login
-
           setTimeout(() => {
             navigate("/");
           }, 2000);
@@ -142,4 +137,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Register;
