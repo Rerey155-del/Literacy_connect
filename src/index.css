@@ -71,3 +71,17 @@ section {
     @apply bg-background text-foreground;
   }
 }
+
+/* Warna progress bar */
+.progres {
+  appearance: none;
+  -webkit-appearance: none; /* Untuk browser berbasis WebKit seperti Chrome */
+  width: 100%;
+  height: 1rem;
+  border: none;
+  background-color: #11999E; /* Warna latar belakang progress bar */
+  border-radius: 0.5rem;
+  overflow: hidden; /* Hilangkan overflow jika ada */
+}
+
+
