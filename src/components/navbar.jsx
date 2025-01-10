@@ -23,8 +23,14 @@ const Navbar = () => {
     const Masuk = () => {
         navigate("/login");
     };
+    const Beranda = () => {
+        navigate("/");
+    };
     const Daftar = () => {
         navigate("/register");
+    };
+    const About = () => {
+        navigate("/about");
     };
 
     const handleLogout = () => {
@@ -45,10 +51,17 @@ const Navbar = () => {
                         className="h-12 object-contain"
                     />
                 </li>
-                <li><a href="#" className="hover:text-blue-500">Beranda</a></li>
-                <li><a href="#" className="hover:text-blue-500">Tentang Kami</a></li>
+                <li><a href="#" className="hover:text-blue-500"  onClick={(e) => {
+                                    e.preventDefault();
+                                Beranda();}}
+                >Beranda</a></li>
+                <li><a href="#" className="hover:text-blue-500"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                About();
+                                }}>Tentang Kami</a></li>
                 <li><a href="#" className="hover:text-blue-500">Donasi</a></li>
-                <li><a href="#" className="hover:text-blue-500">Galang Dana</a></li>
+                <li><a href="#" className="hover:text-blue-500">Laporan</a></li>
             </ul>
             <ul className="flex items-center gap-4 list-none m-0 p-0">
 
