@@ -86,8 +86,8 @@ const DetailDonasi = () => {
                                     alt={item.title}
                                     className="w-full h-[25rem] object-cover rounded-lg"
                                 />
-                                <h2 className="text-2xl font-bold mt-4">{item.judul}</h2>
-                                <div className="border bg-transparent p-10">
+                                <h2 className="text-2xl font-bold mt-6">{item.judul}</h2>
+                                <div className="container mx-auto border bg-transparent p-10 rounded-xl mt-6">
                                     <div className="flex">
                                         <h2 className="font-bold text-3xl">
                                             {donasi.toLocaleString("id-ID", {
@@ -111,6 +111,13 @@ const DetailDonasi = () => {
                                     ></progress>
 
 
+                                </div>
+                                <div className="grid grid-cols-2 gap-20 mt-4">
+                                    <button className="btn w-full btn-accent mt-4 bg-green-600 text-white">Donasi Sekarang</button>
+                                    <button className="btn w-full btn-accent mt-4 bg-white ">Bagikan</button>
+                                </div>
+                                <div className="container mx-auto border bg-transparent p-10 rounded-xl mt-6">
+                                    <p className="text-lg">{item.definisi}</p>
                                 </div>
                             </div>
                         ))}
