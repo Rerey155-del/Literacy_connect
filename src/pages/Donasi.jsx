@@ -21,7 +21,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 
-const LandingPage = () => {
+const Donasi = () => {
     const location = useLocation();
 
 
@@ -158,4 +158,4 @@ const LandingPage = () => {
     );
 };
 
-export default LandingPage;
+export default Donasi;
