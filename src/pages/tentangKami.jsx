@@ -50,7 +50,7 @@ const LandingPage = () => {
                 }}
             >
                 <Navbar />
-                <div className="mt-[8rem] text-center font-[Montserrat] font-bold text-xl mb-10">
+                <div className="mt-[8rem] text-center font-[Montserrat] font-bold text-xl mb-10" data-aos="fade-up">
                     <h2>Mewujudkan Akses Pendidikan Untuk Semua</h2>
                     <h2>Satu Donasi pada satu waktu</h2>
                     <button className="btn btn-wide btn-accent mt-4 bg-[#11999E] text-white">Donasi</button>
@@ -58,7 +58,7 @@ const LandingPage = () => {
                         <img className="container object-cover h-[20rem] rounded-2xl" src={foto4} alt="" />
                     </div>
                 </div>
-                <div className=" text-center font-[Montserrat] font-semibold text-lg bg-[#216a6dd9] w-full h-auto mb-10">
+                <div className=" text-center font-[Montserrat] font-semibold text-lg bg-[#216a6dd9] w-full h-auto mb-10" data-aos="fade-up">
                     <div className="grid grid-cols-2 p-8 text-white gap-12 container mx-auto items-center">
                         <div>
                             <h2>Visi</h2>
@@ -90,7 +90,7 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container mx-auto justify-items-center" >
+                <div className="container mx-auto justify-items-center" data-aos="fade-up" >
                     <h2 className="text-center font-bold text-2xl">Meet Our Team</h2>
                     <div className="grid p-6 gap-20 grid-cols-2">
                         <div>

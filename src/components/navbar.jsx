@@ -7,17 +7,17 @@ const Navbar = () => {
 
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+    const [username, setUsername] = useState("");
 
-  useEffect(() => {
-    
-    const storedUsername = localStorage.getItem("username");  
-    const isLoggedIn = localStorage.getItem("isLoggedIn"); 
-    if (isLoggedIn && storedUsername) {
-      setIsLoggedIn(true);
-      setUsername(storedUsername);
-    }
-  }, []);
+    useEffect(() => {
+
+        const storedUsername = localStorage.getItem("username");
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        if (isLoggedIn && storedUsername) {
+            setIsLoggedIn(true);
+            setUsername(storedUsername);
+        }
+    }, []);
 
 
     const Masuk = () => {
@@ -32,6 +32,9 @@ const Navbar = () => {
     const About = () => {
         navigate("/about");
     };
+    const Donasi = () => {
+        navigate("/donasi");
+    };
 
     const handleLogout = () => {
         // Logout user
@@ -39,7 +42,7 @@ const Navbar = () => {
         setUsername("");
         localStorage.removeItem("username"); // Hapus data username di localStorage
         localStorage.removeItem("isLoggedIn"); // Hapus tanda login
-      };
+    };
 
     return (
         <nav className="flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly font-inter shadow-xl font-[Inter] fixed ">
@@ -51,16 +54,20 @@ const Navbar = () => {
                         className="h-12 object-contain"
                     />
                 </li>
-                <li><a href="#" className="hover:text-blue-500"  onClick={(e) => {
-                                    e.preventDefault();
-                                Beranda();}}
+                <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
+                    e.preventDefault();
+                    Beranda();
+                }}
                 >Beranda</a></li>
                 <li><a href="#" className="hover:text-blue-500"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                About();
-                                }}>Tentang Kami</a></li>
-                <li><a href="#" className="hover:text-blue-500">Donasi</a></li>
+                    onClick={(e) => {
+                        e.preventDefault();
+                        About();
+                    }}>Tentang Kami</a></li>
+                <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
+                    e.preventDefault();
+                    Donasi();
+                }} >Donasi</a></li>
                 <li><a href="#" className="hover:text-blue-500">Laporan</a></li>
             </ul>
             <ul className="flex items-center gap-4 list-none m-0 p-0">
@@ -96,7 +103,7 @@ const Navbar = () => {
                         <li>
                             <a
                                 href=""
-                                onClick={(e)=> {
+                                onClick={(e) => {
                                     e.preventDefault();
                                     Daftar();
                                 }}
