@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar";
 import foto4 from "../assets/foto4.png";
-import dila from "../assets/dilaa.png"; 
+import dila from "../assets/dilaa.png";
 import siapa from "../assets/unknown.jpg";
 import Foto4 from "../assets/foto4.jpg";
 import foto5 from "../assets/foto5.jpg";
@@ -92,23 +92,26 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container mx-auto justify-items-center" data-aos="fade-up" >
-                    <h2 className="text-center font-bold text-2xl">Meet Our Team</h2>
-                    <div className="grid p-6 gap-20 grid-cols-2 justify-center ">
+                <div
+                    className="container mx-auto flex flex-col items-center justify-center"
+                    data-aos="fade-up"
+                >
+                    <h2 className="text-center font-bold text-2xl mb-6">Meet Our Team</h2>
+                    <div className="grid p-6 gap-20 grid-cols-2 justify-items-center">
                         <div>
-                            <div className="card bg-white w-96 shadow-2xl">
+                            <div className="card bg-white w-96  shadow-2xl">
                                 <figure className="px-6 pt-6">
                                     <img
                                         src={dila}
-                                        alt="Shoes"
-                                        className="rounded-xl h-[20rem]" />
+                                        alt="Fhadila Nova Ramadhani"
+                                        className="rounded-xl h-[20rem]"
+                                    />
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">Fhadila Nova Ramadhani</h2>
                                     <p>( Ketua )</p>
                                     <p>Sistem Informasi</p>
                                     <p>22101152610480</p>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -117,22 +120,21 @@ const LandingPage = () => {
                                 <figure className="px-6 pt-6">
                                     <img
                                         src={siapa}
-                                        alt="Shoes"
-                                        className="rounded-xl h-[20rem]" />
+                                        alt="Nesa Eriza Putri"
+                                        className="rounded-xl h-[20rem]"
+                                    />
                                 </figure>
                                 <div className="card-body items-center text-center">
-                                <h2 className="card-title">Nesa Eriza Putri</h2>
+                                    <h2 className="card-title">Nesa Eriza Putri</h2>
                                     <p>( Anggota )</p>
                                     <p>Sistem Informasi</p>
                                     <p>22101152610361</p>
                                 </div>
                             </div>
                         </div>
-                        <div>
-
-                        </div>
                     </div>
                 </div>
+
 
             </div>
 
