@@ -69,7 +69,7 @@ const Register = () => {
   return (
     <section>
       <div
-        className=" grid grid-cols-2  p-10 mx-auto justify-center items-center min-h-screen w-full"
+        className="flex flex-col md:flex-row items-center gap-[10rem] justify-center p-10 mx-auto min-h-screen w-full"
         style={{
           backgroundColor: "#FFFFFF",
           color: "#000000",
@@ -81,12 +81,11 @@ const Register = () => {
         }}
       >
         {/* Bagian Gambar */}
-
-        <div className="pl-16" data-aos="fade-up">
+        <div className="pl-16 md:pl-0 mb-8 md:mb-0" data-aos="fade-up">
           <img src={Login} className="w-[30rem]" alt="Login illustration" />
         </div>
 
-        {/* Bagian Form Login */}
+        {/* Bagian Form Register */}
         <div
           className="bg-white w-[23rem] h-auto shadow-xl border rounded-xl p-6"
           data-aos="fade-up"
@@ -144,25 +143,32 @@ const Register = () => {
                 </div>
               </label>
 
-              {/* Tombol Login */}
+              {/* Tombol Register */}
               <div className="pt-6 text-center">
                 <button
                   className="btn bg-[#11999E] text-white w-full rounded-lg"
-                  onClick={handleLogin}
+                  type="submit"
                 >
                   Daftar
                 </button>
                 {pesan && <p className="text-red-500 pt-4">{pesan}</p>}
-                <p className="pt-4">Sudah memiliki akun?<br />
-                  <span className="text-[#11999E] pt-4 cursor-pointer hover:underline " onClick={login}>Masuk disini</span>
+                <p className="pt-4">
+                  Sudah memiliki akun?
+                  <br />
+                  <span
+                    className="text-[#11999E] pt-4 cursor-pointer hover:underline"
+                    onClick={login}
+                  >
+                    Masuk disini
+                  </span>
                 </p>
               </div>
             </form>
           </div>
         </div>
-
       </div>
     </section>
+
   );
 };
 

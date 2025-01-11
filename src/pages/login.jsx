@@ -38,9 +38,9 @@ const LoginPage = () => {
         if (user && user.password === password) {
           setPesan("Login berhasil!");
 
-        // Simpan username ke localStorage
-        localStorage.setItem("username", user.nama); // Simpan nama pengguna
-        localStorage.setItem("isLoggedIn", true); // Tandai bahwa user sudah login
+          // Simpan username ke localStorage
+          localStorage.setItem("username", user.nama); // Simpan nama pengguna
+          localStorage.setItem("isLoggedIn", true); // Tandai bahwa user sudah login
 
           setTimeout(() => {
             navigate("/");
@@ -57,12 +57,10 @@ const LoginPage = () => {
   };
 
   return (
-    <section>
+    <section className="flex justify-center items-center  min-h-screen w-full bg-white">
       <div
-        className="grid grid-cols-2 gap-4 p-10 mx-auto justify-center items-center min-h-screen w-full"
+        className="flex flex-col md:flex-row items-center justify-center gap-[10rem] p-10 max-w-screen-lg w-full"
         style={{
-          backgroundColor: "#FFFFFF",
-          color: "#000000",
           fontFamily: "Inter, sans-serif",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -71,7 +69,7 @@ const LoginPage = () => {
         }}
       >
         {/* Bagian Gambar */}
-        <div className="pl-16" data-aos="fade-up">
+        <div className="" data-aos="fade-up">
           <img src={login} className="w-[30rem]" alt="Login illustration" />
         </div>
 
