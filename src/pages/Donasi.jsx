@@ -1,7 +1,7 @@
 import Navbar from "../components/navbar";
-import foto1 from "../assets/foto1.png";
-import foto2 from "../assets/foto2.jpg";
-import foto3 from "../assets/foto3.jpg";
+
+
+
 import Accordion from '@mui/material/Accordion';
 
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -14,16 +14,32 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import "../index.css";
 
 import Footer from "../components/footer";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 
 const Donasi = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+    const [campaign,setCampaign]= useState([]);
 
+    useEffect(() => {
+        axios
+          .get("http://localhost:5000/campaign")
+          .then((response) => {
+            setCampaign(response.data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }, []);
+
+      const showCampaignDetail = (id) => {
+          navigate(`/detail/${id}`);
+      };
 
     useEffect(() => {
         AOS.init({
@@ -60,48 +76,34 @@ const Donasi = () => {
                 <div className="mt-[8rem]">
                     <h1 className="text-center font-[Montserrat] font-bold text-xl">Dari Donasi Untuk Literasi</h1>
                     <div className="container mx-auto grid p-4 gap-2 grid-cols-3 justify-items-center">
-                        <div>
-                            <div className="card bg-white w-96 shadow-2xl">
-                                <figure className="px-6 pt-6">
-                                    <img
-                                        src={foto1}
-                                        alt="Shoes"
-                                        className="rounded-xl h-[12rem] object-cover" />
-                                </figure>
-                                <div className="card-body h-[12rem] items-center text-center">
-                                    <h2 className="text-md font-bold">4 Bulan Nunggak Iuran Sekolah, Rani Terancam Putus Sekolah</h2>
-                                    <button className="btn btn-wide btn-accent mt-4 bg-[#11999E] text-white">Donasi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="card bg-white w-96 shadow-2xl">
-                                <figure className="px-6 pt-6">
-                                    <img
-                                        src={foto2}
-                                        alt="Shoes"
-                                        className="rounded-xl h-[12rem] object-cover" />
-                                </figure>
-                                <div className="card-body h-[12rem] items-center text-center">
-                                    <h2 className="text-md font-bold">Beasiswa Pendidikan yang Putus Sekolah</h2>
-                                    <button className="btn btn-wide btn-accent mt-4 bg-[#11999E] text-white">Donasi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="card bg-white w-96 shadow-2xl">
-                                <figure className="px-6 pt-6">
-                                    <img
-                                        src={foto3}
-                                        alt="Shoes"
-                                        className="rounded-xl h-[12rem] object-cover" />
-                                </figure>
-                                <div className="card-body h-[12rem] items-center text-center">
-                                    <h2 className="text-md font-bold">Bantu hadirkan pendidikan yang adil dan layak untuk anak-anak pedalaman kampung opang</h2>
-                                    <button className="btn btn-wide btn-accent mt-2 bg-[#11999E] text-white">Donasi</button>
-                                </div>
-                            </div>
-                        </div>
+                    {campaign.length > 0 ? (
+              campaign.map((item) => (
+                <div key={item.id} className="mb-4">
+                  <div className="card bg-white w-96 shadow-2xl">
+                    <figure className="px-6 pt-6">
+                      <img
+                        src={item.foto}
+                        alt={item.title}
+                        className="rounded-xl h-[12rem] object-cover"
+                      />
+                    </figure>
+                    <div className="card-body h-[12rem] items-center text-center">
+                      <h2 className="text-md font-bold">
+                        {item.judul}
+                      </h2>
+                      <button
+                        className="btn btn-wide btn-accent mt-4 bg-[#11999E] text-white"
+                        onClick={() => showCampaignDetail(item.id)}
+                      >
+                        Donasi
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-center col-span-3">Memuat data...</p>
+            )}
                     </div>
                 </div>
 
@@ -114,7 +116,7 @@ const Donasi = () => {
                                 aria-controls="panel1-content"
                                 id="panel1-header"
                             >
-                                <Typography component="span" className="">Apa itu Literacy Connect?</Typography>
+                                <Typography component="span" >Apa itu Literacy Connect?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 Literacy Connect adalah platform penggalangan dana untuk mendukung program literasi anak-anak yang kurang beruntung terkhususnya di Sumatera Barat
@@ -129,7 +131,7 @@ const Donasi = () => {
                                 <Typography component="span">Bagaimana cara kerja Literacy Connect?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                blablabla
+                            Kami mengumpulkan donasi secara online, lalu menyalurkannya untuk program pendidikan seperti buku, pelatihan membaca, menulis, dan literasi digital
                             </AccordionDetails>
                         </Accordion>
                         <Accordion defaultExpanded>
@@ -141,9 +143,9 @@ const Donasi = () => {
                                 <Typography component="span">Apakah saya bisa memilih program yang ingin saya dukung?</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                            blablabla
+                            Ya, Anda dapat memilih program spesifik seperti pengadaan buku atau pelatihan digital saat berdonasi.
                             </AccordionDetails>
-                            
+
                         </Accordion>
                     </div>
                 </div>

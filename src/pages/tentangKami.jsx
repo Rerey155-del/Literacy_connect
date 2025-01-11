@@ -2,6 +2,8 @@ import Navbar from "../components/navbar";
 import foto4 from "../assets/foto4.png";
 import dila from "../assets/dilaa.png"; 
 import siapa from "../assets/unknown.jpg";
+import Foto4 from "../assets/foto4.jpg";
+import foto5 from "../assets/foto5.jpg";
 
 
 import "../index.css";
@@ -65,10 +67,10 @@ const LandingPage = () => {
                             <p>Mewujudkan akses pendidikan yang matang dan berkualitas bagi anak-anak SUMBAR untuk meningkatkan keterampilan literasi, menciptakan generasi cerdas, kreatif, dan daya saing </p>
                         </div>
                         <div>
-                            <img className="rounded-xl w-full h-[25rem]" src={foto4} alt="" />
+                            <img className="rounded-xl w-full h-[25rem]" src={Foto4} alt="" />
                         </div>
                         <div>
-                            <img className="rounded-xl w-full h-[25rem]" src={foto4} alt="" />
+                            <img className="rounded-xl w-full h-[25rem]" src={foto5} alt="" />
                         </div>
                         <div>
                             <h2>Misi</h2>

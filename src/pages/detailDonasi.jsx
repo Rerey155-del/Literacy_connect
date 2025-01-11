@@ -2,18 +2,15 @@ import Navbar from "../components/navbar";
 import "../index.css";
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 
-
-
-
 const DetailDonasi = () => {
+    const { id } = useParams();
     const location = useLocation();
-    const [data, setData] = useState([]); // State untuk menyimpan data dari API
-    const [error, setError] = useState(null); // State untuk menangani error
+    const [data, setData] = useState(null); // Menyimpan satu objek data dari API
     const [donasi, setDonasi] = useState(0);
     const [batas] = useState(50000000); // Batas maksimal donasi
     const [progres, setProgres] = useState(0);
@@ -28,24 +25,16 @@ const DetailDonasi = () => {
         });
     }, []);
 
-    // Pemanggilan API menggunakan axios
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get("http://localhost:5000/campaign");
-                setData(response.data); // Simpan data dari API ke state
-                if (response.data && response.data.length > 0) {
-                    const data = response.data[0]; // Ambil data donasi pertama
-                    setDonasi(data.nominal);
-                    setProgres((data.nominal / batas) * 100); // Hitung persentase progres
-                }
-            } catch (error) {
-                setError("Gagal memuat data. Coba lagi nanti.");
-                console.error("Error fetching data:", error);
-            }
-        };
-        fetchData();
-    }, [batas]);
+        axios
+            .get(`http://localhost:5000/campaign/${id}`)
+            .then((response) => {
+                const fetchedData = response.data; // Data dari API berdasarkan id
+                setData(fetchedData); // Simpan data ke state
+                setDonasi(fetchedData.nominal || 0); // Set nilai nominal donasi (default 0 jika null)
+                setProgres(((fetchedData.nominal || 0) / batas) * 100); // Hitung progres donasi
+            });
+    }, [id, batas]);
 
     return (
         <section>
@@ -69,24 +58,17 @@ const DetailDonasi = () => {
             >
                 <Navbar />
                 <div className="p-6">
-                    <h1 className="text-2xl font-bold mb-4">Daftar Donasi</h1>
+                    <h1 className="text-2xl font-bold mb-4">Detail Donasi</h1>
 
-                    {/* Menampilkan pesan error jika terjadi */}
-                    {error && <p className="text-red-500">{error}</p>}
-
-                    {/* Menampilkan kartu-kartu data */}
                     <div className="container mx-auto px-8 mt-14">
-                        {data.map((item) => (
-                            <div
-                                key={item.id}
-                                data-aos="fade-up"
-                            >
+                        {data ? ( 
+                            <div data-aos="fade-up">
                                 <img
-                                    src={item.foto} // Gambar dari API
-                                    alt={item.title}
+                                    src={data.foto} // Gambar dari API
+                                    alt={data.judul}
                                     className="w-full h-[25rem] object-cover rounded-lg"
                                 />
-                                <h2 className="text-2xl font-bold mt-6">{item.judul}</h2>
+                                <h2 className="text-2xl font-bold mt-6">{data.judul}</h2>
                                 <div className="container mx-auto border bg-transparent p-10 rounded-xl mt-6">
                                     <div className="flex">
                                         <h2 className="font-bold text-3xl">
@@ -96,7 +78,6 @@ const DetailDonasi = () => {
                                             })}
                                         </h2>
                                         <p className="mt-2 ml-auto text-gray-600">
-
                                             terkumpul dari{" "}
                                             {batas.toLocaleString("id-ID", {
                                                 style: "currency",
@@ -105,22 +86,26 @@ const DetailDonasi = () => {
                                         </p>
                                     </div>
                                     <progress
-                                        className="progress w-full "
+                                        className="progress w-full"
                                         value={progres}
                                         max="100"
                                     ></progress>
-
-
                                 </div>
                                 <div className="grid grid-cols-2 gap-20 mt-4">
-                                    <button className="btn w-full btn-accent mt-4 bg-green-600 text-white">Donasi Sekarang</button>
-                                    <button className="btn w-full btn-accent mt-4 bg-white ">Bagikan</button>
+                                    <button className="btn w-full btn-accent mt-4 bg-green-600 text-white">
+                                        Donasi Sekarang
+                                    </button>
+                                    <button className="btn w-full btn-accent mt-4 bg-white">
+                                        Bagikan
+                                    </button>
                                 </div>
                                 <div className="container mx-auto border bg-transparent p-10 rounded-xl mt-6">
-                                    <p className="text-lg">{item.definisi}</p>
+                                    <p className="text-lg">{data.definisi}</p>
                                 </div>
                             </div>
-                        ))}
+                        ) : (
+                            <p className="text-center text-gray-500 font-semibold">Memuat data...</p> // Tampilkan pesan saat data belum tersedia
+                        )}
                     </div>
                 </div>
             </div>
