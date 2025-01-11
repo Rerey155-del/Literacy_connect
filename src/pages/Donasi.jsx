@@ -1,18 +1,11 @@
 import Navbar from "../components/navbar";
-
-
-
 import Accordion from '@mui/material/Accordion';
 
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-
-
 import "../index.css";
-
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -75,7 +68,7 @@ const Donasi = () => {
                 <Navbar />
                 <div className="mt-[8rem]">
                     <h1 className="text-center font-[Montserrat] font-bold text-xl">Dari Donasi Untuk Literasi</h1>
-                    <div className="container mx-auto grid p-4 gap-2 grid-cols-3 justify-items-center">
+                    <div className="container mx-auto grid p-4 gap-2 grid-cols-3 justify-items-center" data-aos="fade-up">
                     {campaign.length > 0 ? (
               campaign.map((item) => (
                 <div key={item.id} className="mb-4">

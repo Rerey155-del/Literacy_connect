@@ -36,6 +36,8 @@ const DetailDonasi = () => {
             });
     }, [id, batas]);
 
+    
+
     return (
         <section>
             <div

@@ -1,12 +1,10 @@
 import Navbar from "../components/navbar";
 import Frame from "../assets/FRAME.png";
 import "../index.css";
-import foto1 from "../assets/foto1.png";
-import foto2 from "../assets/foto2.jpg";
-import foto3 from "../assets/foto3.jpg";
 import Footer from "../components/footer";
-import { useEffect } from "react";
-import {useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -14,17 +12,42 @@ import "aos/dist/aos.css";
 
 const LandingPage = () => {
     const location = useLocation();
-    
+    const [campaign, setCampaign] = useState([]);  // Menyimpan data campaign
+    const [batas] = useState(50000000);  // Batas target donasi
+    const [donasi, setDonasi] = useState(0);  // Total donasi
+    const [setProgres] = useState(0);  // Progres donasi
+
     useEffect(() => {
         AOS.init({
-          duration: 1000,
+            duration: 1000,
         });
-      }, []);
+    }, []);
 
-      useEffect(() => {
+    useEffect(() => {
         window.scrollTo(0, 0); // Scroll ke atas
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [location]); 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location]);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:5000/campaign")
+            .then((response) => {
+                setCampaign(response.data);  // Menyimpan data campaign
+                let totalDonasi = 0; // Inisialisasi total donasi
+
+                // Loop untuk menghitung total donasi dan progres
+                response.data.forEach((item) => {
+                    totalDonasi += item.nominal || 0;  // Tambahkan nominal donasi tiap kampanye
+                });
+
+                // Update nilai donasi dan progres
+                setDonasi(totalDonasi);
+                setProgres(((totalDonasi / batas) * 100));  // Hitung progres total donasi
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+    }, [batas]);
 
     return (
         <section>
@@ -44,7 +67,7 @@ const LandingPage = () => {
                     backgroundSize: "cover",
                     display: "flex",
                     flexDirection: "column", // Menyusun elemen secara vertikal
-                }} 
+                }}
             >
                 <Navbar />
                 <div
@@ -89,12 +112,17 @@ const LandingPage = () => {
                             </svg>
                         </label>
                     </div>
-
                 </div>
 
+                {/* Bagian total donasi, donatur, dan program */}
                 <div className=" mt-24 gap-6 flex items-center justify-center  text-xl lg:gap-32 mb-24  ">
                     <div className=" text-center lg:space-y-3 lg:text-xl ">
-                        <p className="text-2xl font-bold text-[#11999E]">Rp 158.400.000</p>
+                        <p className="text-2xl font-bold text-[#11999E]">
+                            {donasi.toLocaleString("id-ID", {
+                                style: "currency",
+                                currency: "IDR",
+                            })}
+                        </p>
                         <p>Total Donasi</p>
                     </div>
 
@@ -108,71 +136,52 @@ const LandingPage = () => {
                         <p>Program</p>
                     </div>
                 </div>
-                <div className="bg-[#E4F9F5] grid grid-cols-3 gap-4 p-10 mx-auto h-auto w-auto rounded-xl mb-8"  data-aos="fade-up">
-                    <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
-                        <figure>
-                            <img
-                                src={foto1}
-                                alt="" />
-                        </figure>
-                        <div className="card-body h-[15rem]">
-                            <h2 className="card-title">4 Bulan Nunggak Iuran Sekolah, Rani Terancam Putus Sekolah</h2>
-                            <div className="mt-16">
-                                <p className="text-[#11999E] font-medium">Literacy Connect</p>
-                                <p>Dana terkumpul</p>
-                            </div>
-                            <progress className="progress w-56 bg-[#11999E] w-full" value="100" max="100"></progress>
-                            <div className="flex justify-between">
-                                <p className="text-left">Rp. 4.000.000</p>
-                                <p className="text-right">6 Donatur</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
-                        <figure>
-                            <img
-                                src={foto2}
-                                alt="" />
-                        </figure>
-                        <div className="card-body h-[15rem]">
-                            <h2 className="card-title">Beasiswa Pendidikan yang Putus Sekolah</h2>
-                            <div className="mt-14">
-                                <p className="text-[#11999E] font-medium">Literacy Connect</p>
-                                <p>Dana terkumpul</p>
-                            </div>
-                            <progress className="progress w-56 bg-[#11999E] w-full" value="70" max="100"></progress>
-                            <div className="flex justify-between">
-                                <p className="text-left">Rp. 4.000.000</p>
-                                <p className="text-right">6 Donatur</p>
-                            </div>
 
-                        </div>
-                    </div>
-                    <div className="card card-compact bg-base-100 w-96 shadow-xl rounded-lg bg-white">
-                        <figure>
-                            <img
-                                src={foto3}
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body h-[15rem]">
-                            <h2 className="card-title">Bantu hadirkan pendidikan yang adil dan layak untuk anak-anak pedalaman kampung opang</h2>
-                            <div className="mt-10">
-                                <p className="text-[#11999E] font-medium">Kampung opang</p>
-                                <p>Dana terkumpul</p>
-                                <progress className="progress w-full bg-[#11999E] " value="100" max="100"></progress>
-                                <div className="flex justify-between">
-                                    <p className="text-left">Rp. 4.000.000</p>
-                                    <p className="text-right">6 Donatur</p>
+                {/* Kampanye */}
+                <div className="bg-[#E4F9F5] grid grid-cols-3 gap-4 p-10 mx-auto h-auto w-auto rounded-xl mb-8" data-aos="fade-up">
+                    {campaign.map((item, index) => (
+                        <div key={index} className="card card-compact w-96 shadow-xl rounded-lg bg-white">
+                            <figure>
+                                <img
+                                    src={item.foto}
+                                    alt={item.judul}
+                                />
+                            </figure>
+                            <div className="card-body h-[15rem]">
+                                <h2 className="card-title">{item.judul}</h2>
+                                <div className="pt-10">
+                                    <p>Dana terkumpul</p>
+                                    <progress
+                                        className="progress w-full"
+                                        value={((item.nominal || 0) / batas) * 100}
+                                        max="100"
+                                    ></progress>
+                                    <div className="flex">
+                                        
+                                            <p className="font-medium text-md">
+                                                {item.nominal.toLocaleString("id-ID", {
+                                                    style: "currency",
+                                                    currency: "IDR",
+                                                })}
+                                            </p>
+                                            <p className="font-medium text-md ml-[11rem]">
+                                                {item.donatur} orang
+                                            </p>
+                                        
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
+                    ))}
                 </div>
+
+
                 <div className="p-10 mx-auto font-semibold text-2xl word-break w-[35rem] text-center">
                     <p>Pintu kami selalu terbuka untuk lebih banyak orang yang ingin mendukung satu sama lain</p>
                     <button className="btn btn-outline btn-accent p-4 mt-8">Ikut serta </button>
                 </div>
+
+                {/* Form Langganan */}
                 <div className="bg-[#11999ED9] flex flex-col items-center justify-center gap-4 p-10 mx-24 h-[20rem] w-auto rounded-xl mb-8">
                     <p className="break-words w-[25rem] mx-auto text-center text-white font-semibold text-2xl">Jangan lewatkan update mingguan kami tentang donasi</p>
                     <div className="flex justify-center gap-4">
@@ -181,8 +190,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
-
+            <Footer />
         </section>
     );
 };
