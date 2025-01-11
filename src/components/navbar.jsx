@@ -48,8 +48,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className=" flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly shadow-xl font-[Inter] fixed ">
-            <div className='container mx-auto'>
+        <nav className="flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly shadow-xl font-[Inter] fixed ">
+            
                 <ul className="flex items-center gap-4 list-none m-0 p-0">
                     <li>
                         <img
@@ -123,7 +123,7 @@ const Navbar = () => {
                         </>
                     )}
                 </ul>
-            </div>
+            
         </nav>
     );
 };
