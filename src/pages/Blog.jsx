@@ -1,5 +1,7 @@
 import Navbar from "../components/navbar";
 import foto6 from "../assets/foto6.jpg";
+import foto7 from "../assets/foto7.jpg";
+import foto8 from "../assets/foto8.jpg";
 
 
 import "../index.css";
@@ -47,7 +49,7 @@ const Donasi = () => {
         >
             <Navbar />
             <div>
-                <div className="mt-20 grid grid-cols-2 p-12 mx-auto justify-items-center"  >
+                <div className="container mt-20 grid grid-cols-2 p-12 mx-auto justify-items-center"  >
                     <p className=" flex font-semibold items-center text-2xl">Ikuti untuk berita terbaru hari ini!</p>
                     <label className="flex items-center gap-2 bg-white p-1 font-[Inter] w-1/2 rounded-2xl border">
                         <input
@@ -69,7 +71,7 @@ const Donasi = () => {
                         </svg>
                     </label>
                 </div>
-                <div className="px-12 ">
+                <div className="px-12 container mx-auto">
                     <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8">
                         {/* Bagian Gambar */}
                         <div className="flex-shrink-0">
@@ -86,7 +88,7 @@ const Donasi = () => {
                                 Meningkatkan Literasi Anak di Sumatra Barat Bersama Literacy Connect
                             </h2>
                             <p>
-                                Meningkatkan Literasi Anak di Sumatra Barat Bersama Literacy Connect <br />
+                                
                                 Literacy Connect baru saja meluncurkan program Satu Buku, Sejuta Harapan
                                 untuk mendukung pendidikan anak-anak di daerah terpencil Sumatra Barat.
                             </p>
@@ -96,7 +98,7 @@ const Donasi = () => {
                         {/* Bagian Gambar */}
                         <div className="flex-shrink-0">
                             <img
-                                src={foto6}
+                                src={foto7}
                                 className="w-[24rem] h-[20rem] rounded-3xl object-cover"
                                 alt="Literacy Connect"
                             />
@@ -105,12 +107,12 @@ const Donasi = () => {
                         
                         <div className="flex-1">
                             <h2 className="font-bold text-xl mb-4">
-                                Meningkatkan Literasi Anak di Sumatra Barat Bersama Literacy Connect
+                            Donasi Buku Mencapai 1.000 Eksemplar
+
                             </h2>
                             <p>
-                                Meningkatkan Literasi Anak di Sumatra Barat Bersama Literacy Connect <br />
-                                Literacy Connect baru saja meluncurkan program Satu Buku, Sejuta Harapan
-                                untuk mendukung pendidikan anak-anak di daerah terpencil Sumatra Barat.
+                              
+                            Kampanye Satu Buku untuk Masa Depan berhasil mengumpulkan 1.000 buku dari para donatur di seluruh Indonesia.
                             </p>
                         </div>
                     </div>
@@ -118,7 +120,7 @@ const Donasi = () => {
                         {/* Bagian Gambar */}
                         <div className="flex-shrink-0">
                             <img
-                                src={foto6}
+                                src={foto8}
                                 className="w-[24rem] h-[20rem] rounded-3xl object-cover"
                                 alt="Literacy Connect"
                             />
@@ -127,12 +129,11 @@ const Donasi = () => {
                         
                         <div className="flex-1">
                             <h2 className="font-bold text-xl mb-4">
-                                Meningkatkan Literasi Anak di Sumatra Barat Bersama Literacy Connect
+                            Peluncuran Program Baca Bersama Relawan
+
                             </h2>
                             <p>
-                                Meningkatkan Literasi Anak di Sumatra Barat Bersama Literacy Connect <br />
-                                Literacy Connect baru saja meluncurkan program Satu Buku, Sejuta Harapan
-                                untuk mendukung pendidikan anak-anak di daerah terpencil Sumatra Barat.
+                            Literacy Connect meluncurkan program baru yang melibatkan relawan untuk membaca bersama anak-anak
                             </p>
                         </div>
                     </div>
