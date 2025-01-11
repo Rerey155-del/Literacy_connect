@@ -3,7 +3,7 @@ import Frame from "../assets/FRAME.png";
 import "../index.css";
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 import AOS from "aos";
@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 
 
 const LandingPage = () => {
-    const location = useLocation();
+    // const location = useLocation();
     const [campaign, setCampaign] = useState([]);  // Menyimpan data campaign
     const [batas] = useState(50000000);  // Batas target donasi
     const [donasi, setDonasi] = useState(0);  // Total donasi
@@ -23,10 +23,10 @@ const LandingPage = () => {
         });
     }, []);
 
-    useEffect(() => {
-        window.scrollTo(0, 0); // Scroll ke atas
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location]);
+    // useEffect(() => {
+    //     window.scrollTo(0, 0); // Scroll ke atas
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [location]);
 
     useEffect(() => {
         axios
@@ -182,7 +182,7 @@ const LandingPage = () => {
                 </div>
 
                 {/* Form Langganan */}
-                <div className="bg-[#11999ED9] flex flex-col items-center justify-center gap-4 p-10 mx-24 h-[20rem] w-auto rounded-xl mb-8">
+                <div className=" mx-24 bg-[#11999ED9] flex flex-col items-center justify-center gap-4 p-10  h-[20rem] w-auto rounded-xl mb-8">
                     <p className="break-words w-[25rem] mx-auto text-center text-white font-semibold text-2xl">Jangan lewatkan update mingguan kami tentang donasi</p>
                     <div className="flex justify-center gap-4">
                         <input type="text" placeholder="masukkan email anda..." className="input input-bordered  bg-white w-full max-w-xs rounded-3xl" />
