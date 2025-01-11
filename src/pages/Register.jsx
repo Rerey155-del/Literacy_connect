@@ -49,7 +49,9 @@ const Register = () => {
         setPesan("Registrasi berhasil! Mengarahkan ke halaman beranda...");
         setTimeout(() => {
           navigate("/");
-           // Navigasi ke halaman beranda
+           // Simpan username ke localStorage
+        localStorage.setItem("username", nama); // Simpan nama pengguna
+        localStorage.setItem("isLoggedIn", true); // Tandai bahwa user sudah login // Navigasi ke halaman beranda
         }, 2000);
       } else {
         setPesan("Terjadi kesalahan, coba lagi nanti.");
