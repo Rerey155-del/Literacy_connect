@@ -72,7 +72,7 @@ const Donasi = () => {
                     </label>
                 </div>
                 <div className="px-12 container mx-auto">
-                    <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8">
+                    <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8 " data-aos="fade-up">
                         {/* Bagian Gambar */}
                         <div className="flex-shrink-0">
                             <img
@@ -94,7 +94,7 @@ const Donasi = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8">
+                    <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8" data-aos="fade-up">
                         {/* Bagian Gambar */}
                         <div className="flex-shrink-0">
                             <img
@@ -116,7 +116,7 @@ const Donasi = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8">
+                    <div className="card shadow-2xl flex flex-col md:flex-row bg-white border mb-12 p-8 items-center gap-8" data-aos="fade-up">
                         {/* Bagian Gambar */}
                         <div className="flex-shrink-0">
                             <img
