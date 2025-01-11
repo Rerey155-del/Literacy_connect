@@ -48,80 +48,82 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly shadow-xl font-[Inter] fixed ">
-            <ul className="flex items-center gap-4 list-none m-0 p-0">
-                <li>
-                    <img
-                        src={logo}
-                        alt="Logo"
-                        className="h-12 object-contain"
-                    />
-                </li>
-                <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
-                    e.preventDefault();
-                    Beranda();
-                }}
-                >Beranda</a></li>
-                <li><a href="#" className="hover:text-blue-500"
-                    onClick={(e) => {
+        <nav className=" flex items-center w-full bg-white text-black p-4 top-0 z-10 justify-evenly shadow-xl font-[Inter] fixed ">
+            <div className='container mx-auto'>
+                <ul className="flex items-center gap-4 list-none m-0 p-0">
+                    <li>
+                        <img
+                            src={logo}
+                            alt="Logo"
+                            className="h-12 object-contain"
+                        />
+                    </li>
+                    <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
                         e.preventDefault();
-                        About();
-                    }}>Tentang Kami</a></li>
-                <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
-                    e.preventDefault();
-                    Donasi();
-                }} >Donasi</a></li>
-                <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
-                    e.preventDefault();
-                    Blog();
-                }} >Blog</a></li>
-                
-            </ul>
-            <ul className="flex items-center gap-4 list-none m-0 p-0">
+                        Beranda();
+                    }}
+                    >Beranda</a></li>
+                    <li><a href="#" className="hover:text-blue-500"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            About();
+                        }}>Tentang Kami</a></li>
+                    <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
+                        e.preventDefault();
+                        Donasi();
+                    }} >Donasi</a></li>
+                    <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
+                        e.preventDefault();
+                        Blog();
+                    }} >Blog</a></li>
 
-                {isLoggedIn ? (
-                    <>
-                        <li>
-                            <span className="text-gray-700">Halo, {username}</span>
-                        </li>
-                        <li>
-                            <button
-                                onClick={handleLogout}
-                                className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-                            >
-                                Keluar
-                            </button>
-                        </li>
-                    </>
-                ) : (
-                    <>
-                        <li>
-                            <a
-                                href=""
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    Masuk();
-                                }}
-                                className="hover:text-blue-500"
-                            >
-                                Masuk
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href=""
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    Daftar();
-                                }}
-                                className="bg-[#11999E] text-white px-4 py-2 rounded-md hover:bg-blue-600"
-                            >
-                                Daftar
-                            </a>
-                        </li>
-                    </>
-                )}
-            </ul>
+                </ul>
+                <ul className="flex items-center gap-4 list-none m-0 p-0">
+
+                    {isLoggedIn ? (
+                        <>
+                            <li>
+                                <span className="text-gray-700">Halo, {username}</span>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={handleLogout}
+                                    className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                                >
+                                    Keluar
+                                </button>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <a
+                                    href=""
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        Masuk();
+                                    }}
+                                    className="hover:text-blue-500"
+                                >
+                                    Masuk
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href=""
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        Daftar();
+                                    }}
+                                    className="bg-[#11999E] text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                                >
+                                    Daftar
+                                </a>
+                            </li>
+                        </>
+                    )}
+                </ul>
+            </div>
         </nav>
     );
 };
