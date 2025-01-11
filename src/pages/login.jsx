@@ -89,13 +89,13 @@ const LoginPage = () => {
             </div>
 
             {/* Judul */}
-            <p className="font-bold text-center pb-4">Masuk ke akunmu</p>
+            <p className="font-bold  text-black text-center pb-4">Masuk ke akunmu</p>
 
             {/* Form Login */}
             <div>
               <label className="block pb-3">
-                <p>Email</p>
-                <div className="input input-bordered flex items-center gap-2 bg-white p-2 rounded-lg">
+                <p className="text-black mb-1">Email</p>
+                <div className="input input-bordered flex text-black items-center gap-2 bg-white p-2 rounded-lg">
                   <input
                     type="email"
                     className="grow outline-none"
@@ -107,11 +107,11 @@ const LoginPage = () => {
               </label>
 
               <label className="block">
-                <p>Password</p>
-                <div className="input input-bordered flex items-center gap-2 bg-white p-2 rounded-lg">
+                <p className="text-black mb-1">Password</p>
+                <div className="input input-bordered flex text-black items-center gap-2 bg-white p-2 rounded-lg">
                   <input
                     type="password"
-                    className="grow outline-none"
+                    className="grow outline-none "
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
