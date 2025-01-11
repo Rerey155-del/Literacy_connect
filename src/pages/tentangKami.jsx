@@ -94,7 +94,7 @@ const LandingPage = () => {
                 </div>
                 <div className="container mx-auto justify-items-center" data-aos="fade-up" >
                     <h2 className="text-center font-bold text-2xl">Meet Our Team</h2>
-                    <div className="grid p-6 gap-20 grid-cols-2">
+                    <div className="grid p-6 gap-20 grid-cols-2 justify-center ">
                         <div>
                             <div className="card bg-white w-96 shadow-2xl">
                                 <figure className="px-6 pt-6">

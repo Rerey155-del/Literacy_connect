@@ -35,6 +35,9 @@ const Navbar = () => {
     const Donasi = () => {
         navigate("/donasi");
     };
+    const Blog = () => {
+        navigate("/blog");
+    };
 
     const handleLogout = () => {
         // Logout user
@@ -68,7 +71,11 @@ const Navbar = () => {
                     e.preventDefault();
                     Donasi();
                 }} >Donasi</a></li>
-                <li><a href="#" className="hover:text-blue-500">Laporan</a></li>
+                <li><a href="#" className="hover:text-blue-500" onClick={(e) => {
+                    e.preventDefault();
+                    Blog();
+                }} >Blog</a></li>
+                
             </ul>
             <ul className="flex items-center gap-4 list-none m-0 p-0">
 
