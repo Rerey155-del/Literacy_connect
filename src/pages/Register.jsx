@@ -30,36 +30,41 @@ const Register = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     if (!nama || !email || !password) {
       setPesan("Nama, Email, dan Password tidak boleh kosong");
       return;
     }
 
     try {
-      // Kirim data ke server menggunakan POST
-      const response = await axios.post("http://localhost:5000/donatur", {
-        nama: nama,
-        email: email,
-        password: password,
+      // Ubah URL sesuai deployment server Anda
+      const API_URL = "http://localhost:5000/donatur";
+
+      const response = await axios.post(API_URL, { nama, email, password }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
 
-      
-
       if (response.status === 201) {
-        setPesan("Registrasi berhasil! Mengarahkan ke halaman beranda...");
+        setPesan("Registrasi berhasil!");
+
+        // Simpan ke localStorage
+        localStorage.setItem("username", nama);
+        localStorage.setItem("isLoggedIn", "true");
+
         setTimeout(() => {
           navigate("/");
-           // Simpan username ke localStorage
-        localStorage.setItem("username", nama); // Simpan nama pengguna
-        localStorage.setItem("isLoggedIn", true); // Tandai bahwa user sudah login // Navigasi ke halaman beranda
-        }, 2000);
+        }, 3000);
       } else {
         setPesan("Terjadi kesalahan, coba lagi nanti.");
       }
     } catch (error) {
-      setPesan("Terjadi kesalahan saat menghubungi server.", error);
+      console.error("Error saat menghubungi server:", error); // Logging ke konsol
+      setPesan("Terjadi kesalahan saat menghubungi server.");
     }
   };
+
 
   return (
     <section>
