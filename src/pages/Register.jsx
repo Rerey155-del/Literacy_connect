@@ -48,7 +48,8 @@ const Register = () => {
       if (response.status === 201) {
         setPesan("Registrasi berhasil! Mengarahkan ke halaman beranda...");
         setTimeout(() => {
-          navigate("/"); // Navigasi ke halaman beranda
+          navigate("/");
+           // Navigasi ke halaman beranda
         }, 2000);
       } else {
         setPesan("Terjadi kesalahan, coba lagi nanti.");

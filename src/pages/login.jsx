@@ -38,7 +38,7 @@ const LoginPage = () => {
         if (user && user.password === password) {
           setPesan("Login berhasil!");
 
-          // Simpan username ke localStorage
+        // Simpan username ke localStorage
         localStorage.setItem("username", user.nama); // Simpan nama pengguna
         localStorage.setItem("isLoggedIn", true); // Tandai bahwa user sudah login
 
