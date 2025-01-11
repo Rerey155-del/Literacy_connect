@@ -28,7 +28,8 @@ const Register = () => {
     navigate("/login");
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     if (!nama || !email || !password) {
       setPesan("Nama, Email, dan Password tidak boleh kosong");
       return;
@@ -41,6 +42,8 @@ const Register = () => {
         email: email,
         password: password,
       });
+
+      
 
       if (response.status === 201) {
         setPesan("Registrasi berhasil! Mengarahkan ke halaman beranda...");
@@ -94,7 +97,7 @@ const Register = () => {
             <p className="font-bold text-center pb-4">Daftar akun baru</p>
 
             {/* Form Login */}
-            <div>
+            <form onSubmit={handleLogin}>
               <label className="block pb-3">
                 <p>Nama</p>
                 <div className="input input-bordered flex items-center gap-2 bg-white p-2 rounded-lg">
@@ -146,7 +149,7 @@ const Register = () => {
                   <span className="text-[#11999E] pt-4 cursor-pointer hover:underline " onClick={login}>Masuk disini</span>
                 </p>
               </div>
-            </div>
+            </form>
           </div>
         </div>
 
