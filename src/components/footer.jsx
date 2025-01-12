@@ -27,7 +27,7 @@ const footer = () => {
                 </ul>
             </div>
             <div className="flex gap-4 -white size-8">
-               <img src={instagram} alt="" />
+               <img  src={instagram} alt="" />
                <img src={facebook} alt="" />
                <img src={whatsapp} alt="" />
                <img src={youtube} alt="" />
