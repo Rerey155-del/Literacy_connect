@@ -71,8 +71,8 @@ const Donasi = () => {
                     <div className="container mx-auto grid p-4 gap-2 grid-cols-3 justify-items-center" data-aos="fade-up">
                     {campaign.length > 0 ? (
               campaign.map((item) => (
-                <div key={item.id} className="mb-4">
-                  <div className="card bg-white w-96 shadow-2xl">
+                <div key={item.id} className="mb-6 ">
+                  <div className="card bg-white w-[23rem] shadow-2xl">
                     <figure className="px-6 pt-6">
                       <img
                         src={item.foto}
