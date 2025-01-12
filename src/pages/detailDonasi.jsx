@@ -14,6 +14,7 @@ const DetailDonasi = () => {
     const [donasi, setDonasi] = useState(0);
     const [batas] = useState(50000000); // Batas maksimal donasi
     const [progres, setProgres] = useState(0);
+    const [nominalInput, setNominalInput] = useState("");
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll ke atas
@@ -36,7 +37,28 @@ const DetailDonasi = () => {
             });
     }, [id, batas]);
 
-    
+    const handleBayar = () => {
+        const nominal = parseInt(nominalInput); // Konversi nominal input menjadi angka
+        if (!isNaN(nominal) && nominal > 0) {
+            // Kirim data yang benar
+            axios
+                .put(`http://localhost:5000/campaign/${id}`, { nominal: nominal }) // Kirim nominal input langsung
+                .then(() => {
+                    setDonasi(donasi + nominal); // Update nilai donasi secara lokal
+                    setProgres(((donasi + nominal) / batas) * 100); // Update progress bar
+                    setNominalInput(""); // Kosongkan input setelah berhasil
+                    alert("Donasi berhasil ditambahkan!");
+                })
+                .catch((error) => {
+                    console.error("Error saat menambahkan donasi:", error);
+                    alert("Terjadi kesalahan. Silakan coba lagi.");
+                });
+        } else {
+            alert("Masukkan nominal yang valid.");
+        }
+    };
+
+
 
     return (
         <section>
@@ -63,7 +85,7 @@ const DetailDonasi = () => {
                     <h1 className="text-2xl font-bold mb-4">Detail Donasi</h1>
 
                     <div className="container mx-auto px-8 mt-14">
-                        {data ? ( 
+                        {data ? (
                             <div data-aos="fade-up">
                                 <img
                                     src={data.foto} // Gambar dari API
@@ -94,10 +116,10 @@ const DetailDonasi = () => {
                                     ></progress>
                                 </div>
                                 <div className="grid grid-cols-2 gap-20 mt-4">
-                                    <button className="btn w-full btn-accent mt-4 bg-green-600 text-white">
+                                    <button className="btn w-full btn-accent mt-4 bg-green-600 text-white" onClick={() => document.getElementById('my_modal_2').showModal()}>
                                         Donasi Sekarang
                                     </button>
-                                    <button className="btn w-full btn-accent mt-4 bg-white">
+                                    <button className="btn w-full btn-accent mt-4 bg-white" onClick={() => document.getElementById('my_modal_3').showModal()}>
                                         Bagikan
                                     </button>
                                 </div>
@@ -112,6 +134,43 @@ const DetailDonasi = () => {
                 </div>
             </div>
             <Footer />
+
+            {/* modal donasi */}
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box justify-items-center text-black bg-white">
+                    <h3 className="font-bold text-xl text-center">Masukkan Nominal</h3>
+                    <input
+                        type="text"
+                        placeholder="masukkan disini..."
+                        value={nominalInput}
+                        onChange={(e) => setNominalInput(e.target.value)} // 
+                        className="input input-bordered input-success bg-white w-[21rem] max-w-xs mt-4" />
+                    <div className="flex mt-4  gap-6 justify-between">
+                        <p>Metode Pembayaran </p>
+                        <select className="select select-bordered w-full max-w-xs bg-white">
+                            <option>OVO</option>
+                            <option>GoPay</option>
+                            <option>ShopeePay</option>
+                            <option>DANA</option>
+                            <option>KlikBCA</option>
+                            <option>LinkBCA</option>
+                        </select>
+                    </div>
+                        <button onClick={handleBayar} className="btn btn-wide btn-success mt-6 w-[21rem] text-white font-bold  ">Bayar</button>
+                </div>
+
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <p className="font-md text-lg">Dukung pendidikan anak-anak di Sumatra Barat dengan donasi Anda. Donasi sekarang, jadilah bagian dari perubahan. </p>         
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
         </section>
     );
 };
