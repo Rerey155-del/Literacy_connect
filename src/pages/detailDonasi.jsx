@@ -15,6 +15,7 @@ const DetailDonasi = () => {
     const [batas] = useState(50000000); // Batas maksimal donasi
     const [progres, setProgres] = useState(0);
     const [nominalInput, setNominalInput] = useState("");
+    
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll ke atas
@@ -114,6 +115,7 @@ const DetailDonasi = () => {
                                         value={progres}
                                         max="100"
                                     ></progress>
+                                    <p>Donatur : {data.donatur} orang</p>
                                 </div>
                                 <div className="grid grid-cols-2 gap-20 mt-4">
                                     <button className="btn w-full btn-accent mt-4 bg-green-600 text-white" onClick={() => document.getElementById('my_modal_2').showModal()}>
