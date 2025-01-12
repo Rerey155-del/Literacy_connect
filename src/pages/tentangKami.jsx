@@ -5,6 +5,8 @@ import siapa from "../assets/unknown.jpg";
 import Foto4 from "../assets/foto4.jpg";
 import foto5 from "../assets/foto5.jpg";
 
+import { useNavigate } from "react-router-dom";
+
 
 import "../index.css";
 
@@ -16,9 +18,15 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 
+
 const LandingPage = () => {
+    const navigate = useNavigate();
     const location = useLocation();
 
+
+    const donasi = () => {
+        navigate("/donasi");
+    };
 
     useEffect(() => {
         AOS.init({
@@ -55,7 +63,7 @@ const LandingPage = () => {
                 <div className="mt-[8rem] text-center font-[Montserrat] font-bold text-xl mb-10" data-aos="fade-up">
                     <h2>Mewujudkan Akses Pendidikan Untuk Semua</h2>
                     <h2>Satu Donasi pada satu waktu</h2>
-                    <button className="btn btn-wide btn-accent mt-4 bg-[#11999E] text-white">Donasi</button>
+                    <button className="btn btn-wide btn-accent mt-4 bg-[#11999E] text-white" onClick={donasi}>Donasi</button>
                     <div className="flex justify-center mt-4 ">
                         <img className="container object-cover h-[20rem] rounded-2xl" src={foto4} alt="" />
                     </div>

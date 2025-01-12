@@ -3,7 +3,7 @@ import Frame from "../assets/FRAME.png";
 import "../index.css";
 import Footer from "../components/footer";
 import { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import AOS from "aos";
@@ -11,7 +11,8 @@ import "aos/dist/aos.css";
 
 
 const LandingPage = () => {
-    // const location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [campaign, setCampaign] = useState([]);  // Menyimpan data campaign
     const [batas] = useState(50000000);  // Batas target donasi
     const [donasi, setDonasi] = useState(0);  // Total donasi
@@ -23,10 +24,14 @@ const LandingPage = () => {
         });
     }, []);
 
-    // useEffect(() => {
-    //     window.scrollTo(0, 0); // Scroll ke atas
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [location]);
+    const Masuk = () => {
+        navigate("/login");
+    };
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll ke atas
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location]);
 
     useEffect(() => {
         axios
@@ -164,7 +169,7 @@ const LandingPage = () => {
                                                     currency: "IDR",
                                                 })}
                                             </p>
-                                            <p className="font-medium text-md ml-[11rem]">
+                                            <p className="font-medium text-md ml-[10rem]">
                                                 {item.donatur} orang
                                             </p>
                                         
@@ -178,7 +183,7 @@ const LandingPage = () => {
 
                 <div className="p-10 mx-auto font-semibold text-2xl word-break w-[35rem] text-center">
                     <p>Pintu kami selalu terbuka untuk lebih banyak orang yang ingin mendukung satu sama lain</p>
-                    <button className="btn btn-outline btn-accent p-4 mt-8">Ikut serta </button>
+                    <button className="btn btn-outline btn-accent p-4 mt-8" onClick={Masuk}>Ikut serta </button>
                 </div>
 
                 {/* Form Langganan */}
@@ -186,7 +191,7 @@ const LandingPage = () => {
                     <p className="break-words w-[25rem] mx-auto text-center text-white font-semibold text-2xl">Jangan lewatkan update mingguan kami tentang donasi</p>
                     <div className="flex justify-center gap-4">
                         <input type="text" placeholder="masukkan email anda..." className="input input-bordered  bg-white w-full max-w-xs rounded-3xl" />
-                        <button className="btn btn-active btn-accent text-white bg-[#30E3CA]">Langganan</button>
+                        <button className="btn btn-active btn-accent text-white bg-[#30E3CA]" onClick={Masuk}>Langganan</button>
                     </div>
                 </div>
             </div>

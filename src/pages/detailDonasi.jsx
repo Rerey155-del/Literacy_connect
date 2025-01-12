@@ -15,7 +15,8 @@ const DetailDonasi = () => {
     const [batas] = useState(50000000); // Batas maksimal donasi
     const [progres, setProgres] = useState(0);
     const [nominalInput, setNominalInput] = useState("");
-    
+    const [donatur, setDonatur] = useState(0);
+
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll ke atas
@@ -35,6 +36,7 @@ const DetailDonasi = () => {
                 setData(fetchedData); // Simpan data ke state
                 setDonasi(fetchedData.nominal || 0); // Set nilai nominal donasi (default 0 jika null)
                 setProgres(((fetchedData.nominal || 0) / batas) * 100); // Hitung progres donasi
+                setDonatur(fetchedData.donatur || 0);
             });
     }, [id, batas]);
 
@@ -47,6 +49,7 @@ const DetailDonasi = () => {
                 .then(() => {
                     setDonasi(donasi + nominal); // Update nilai donasi secara lokal
                     setProgres(((donasi + nominal) / batas) * 100); // Update progress bar
+                    setDonatur(donatur + 1); // Tambah jumlah donatur setelah berhasil donasi
                     setNominalInput(""); // Kosongkan input setelah berhasil
                     alert("Donasi berhasil ditambahkan!");
                 })
@@ -58,6 +61,7 @@ const DetailDonasi = () => {
             alert("Masukkan nominal yang valid.");
         }
     };
+
 
 
 
@@ -115,7 +119,7 @@ const DetailDonasi = () => {
                                         value={progres}
                                         max="100"
                                     ></progress>
-                                    <p>Donatur : {data.donatur} orang</p>
+                                    <p>Donatur : {donatur} orang</p>
                                 </div>
                                 <div className="grid grid-cols-2 gap-20 mt-4">
                                     <button className="btn w-full btn-accent mt-4 bg-green-600 text-white" onClick={() => document.getElementById('my_modal_2').showModal()}>
@@ -158,16 +162,21 @@ const DetailDonasi = () => {
                             <option>LinkBCA</option>
                         </select>
                     </div>
-                        <button onClick={handleBayar} className="btn btn-wide btn-success mt-6 w-[21rem] text-white font-bold  ">Bayar</button>
+                    <button onClick={handleBayar} className="btn btn-wide btn-success mt-6 w-[21rem] text-white font-bold  ">Bayar</button>
                 </div>
 
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
             </dialog>
-            <dialog id="my_modal_3" className="modal">
-                <div className="modal-box">
-                    <p className="font-md text-lg">Dukung pendidikan anak-anak di Sumatra Barat dengan donasi Anda. Donasi sekarang, jadilah bagian dari perubahan. </p>         
+            <dialog id="my_modal_3" className="modal ">
+                <div className="modal-box bg-white">
+                    <p className="font-md text-md text-black">Dukung pendidikan anak-anak di Sumatra Barat dengan donasi Anda. Donasi sekarang, jadilah bagian dari perubahan. </p>
+                    <div className="flex mt-4 gap-6">
+                        <input type="text" placeholder="https://literacyconnect.vercel.app" className="input  bg-white input-bordered w-full max-w-xs" />
+                        <button className="btn btn-success text-white px-8">SALIN</button>
+                    </div>
+                    <p className="mt-4 text-black">Klik link berikut untuk berbagi kebaikan...</p>
                 </div>
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
