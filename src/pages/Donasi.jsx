@@ -95,7 +95,8 @@ const Donasi = () => {
                 </div>
               ))
             ) : (
-              <p className="text-center col-span-3">Memuat data...</p>
+              
+              <span className="loading loading-spinner loading-lg text-center col-span-3"></span>
             )}
                     </div>
                 </div>
